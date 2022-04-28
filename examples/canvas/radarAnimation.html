@@ -22,7 +22,7 @@
                 )
             })
 
-            renderer.setSize(1000, 1000)
+            renderer.setSize(1800, 1000)
 
             var g = renderer.createEl({
                 el: "group",
@@ -113,15 +113,95 @@
                 }
             })
 
+            var b = renderer.createEl({
+                el: "group",
+                attr: {
+                    transform: {
+                        translate: [1250, 600],
+                    },
+                },
+            })
+
+            var rect = b.createEl({
+                el: "rect",
+                attr: {
+                    height: 100,
+                    width: 100,
+                    cx: 0,
+                    cy: 0,
+                },
+                style: {
+                    strokeStyle: "red",
+                    shadowBlur: 20,
+                    shadowColor: "yellow",
+                },
+                bbox: true,
+            })
+            var rect1 = b.createEl({
+                el: "rect",
+                attr: {
+                    height: 150,
+                    width: 150,
+                    x: -25,
+                    y: -25,
+                },
+                style: {
+                    strokeStyle: "red",
+                    shadowBlur: 20,
+                    shadowColor: "yellow",
+                },
+                bbox: true,
+            })
+            var rect2 = b.createEl({
+                el: "rect",
+                attr: {
+                    height: 200,
+                    width: 200,
+                    x: -50,
+                    y: -50,
+                },
+                style: {
+                    strokeStyle: "red",
+                    shadowBlur: 20,
+                    shadowColor: "yellow",
+                },
+                bbox: true,
+            })
+            var boxHolder = b.createEl({
+                el: "circle",
+                attr: {
+                    r: 200,
+                    cx: 50,
+                    cy: 50,
+                },
+                style: {
+                    strokeStyle: "red",
+                    shadowBlur: 20,
+                    // shadowColor: "yellow"
+                },
+                bbox: true,
+            })
+
             // rotate about the center point
             var currentAngle = 0;
             var time;
+            var size;
+            var delay = 0;
             i2d.queue.onRequestFrame(function (t) {
                 t = Date.now();
                 if(!time) {
                     currentAngle = 0;
                 } else {
                     currentAngle += (t - time) / 20;
+                }
+                if(!size) {
+                    size = 10;
+                } else if(delay == 250) {
+                    size = Math.floor(Math.random() * (250 - 50) + 50);
+                    // rect1.fadeOut();
+                    delay = 0;
+                } else {
+                    delay++;
                 }
                 currentAngle = currentAngle % 360
                 time = t
@@ -141,8 +221,19 @@
                     rotate: [currentAngle, 0, 0]
                 })
                 inner2.setAttr("transform", {
-                    rotate: [currentAngle, 50, 0]
+                    rotate: [currentAngle, 0, 10]
                 })
+
+                rect.setAttr("transform", {
+                    rotate: [currentAngle, 50, 50]
+                })
+                rect1.setAttr("transform", {
+                    rotate: [currentAngle, 50, 50]
+                })
+                rect2.setAttr("transform", {
+                    rotate: [currentAngle, 50, 50]
+                })
+                boxHolder.attr.r = size;
             })
         </script>
     </body>
