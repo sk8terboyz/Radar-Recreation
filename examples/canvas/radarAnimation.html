@@ -129,11 +129,14 @@
                     width: 100,
                     cx: 0,
                     cy: 0,
+                    transform: {
+                        rotate: 0
+                    }
                 },
                 style: {
                     strokeStyle: "red",
-                    shadowBlur: 20,
-                    shadowColor: "yellow",
+                    // shadowBlur: 20,
+                    // shadowColor: "yellow",
                 },
                 bbox: true,
             })
@@ -144,11 +147,14 @@
                     width: 150,
                     x: -25,
                     y: -25,
+                    transform: {
+                        rotate: 0
+                    }
                 },
                 style: {
                     strokeStyle: "red",
-                    shadowBlur: 20,
-                    shadowColor: "yellow",
+                    // shadowBlur: 20,
+                    // shadowColor: "yellow",
                 },
                 bbox: true,
             })
@@ -159,11 +165,14 @@
                     width: 200,
                     x: -50,
                     y: -50,
+                    transform: {
+                        rotate: 0
+                    }
                 },
                 style: {
                     strokeStyle: "red",
-                    shadowBlur: 20,
-                    shadowColor: "yellow",
+                    // shadowBlur: 20,
+                    // shadowColor: "yellow",
                 },
                 bbox: true,
             })
@@ -176,7 +185,7 @@
                 },
                 style: {
                     strokeStyle: "red",
-                    shadowBlur: 20,
+                    // shadowBlur: 20,
                     // shadowColor: "yellow"
                 },
                 bbox: true,
@@ -224,17 +233,12 @@
                     rotate: [currentAngle, 0, 10]
                 })
 
-                rect.setAttr("transform", {
-                    rotate: [currentAngle, 50, 50]
-                })
-                rect1.setAttr("transform", {
-                    rotate: [currentAngle, 50, 50]
-                })
-                rect2.setAttr("transform", {
-                    rotate: [currentAngle, 50, 50]
-                })
+                rect.attr.transform.rotate = [currentAngle, 50, 50]
+                rect1.attr.transform.rotate = [currentAngle, 50, 50]
+                rect2.attr.transform.rotate = [currentAngle, 50, 50]
                 boxHolder.attr.r = size;
             })
+            console.log(rect);
         </script>
     </body>
 </html>
