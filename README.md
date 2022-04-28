@@ -1,0 +1,2 @@
+# Radar-Recreation
+This is a recreation and playground where I learned a little bit about animating with the I2Djs animating extension to JavaScript. I saw [this example] {https://i2djs.github.io/I2Djs/examples/canvas/radarAnimation.html} and wanted to learn how it was done. Through recreating this I learned a bit about how to animate objects using JavaScript, but I have seen animations done with CSS as well, so I will need to research which would be better to use overall.
